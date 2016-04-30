@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/navigation_group_one"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_insert_drive_file_black_24dp"
+            android:title="Notes"/>
+
+
+        <item
+            android:id="@+id/reminders"
+            android:icon="@drawable/ic_alarm_24dp"
+            android:title="Reminders"/>
+
+
+    </group>
+
+    <group
+        android:id="@+id/navigation_group_two"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/archives"
+            android:icon="@drawable/ic_archive_black_24dp"
+            android:title="Archives"/>
+
+        <item
+            android:id="@+id/help"
+            android:icon="@drawable/ic_live_help_black_24dp"
+            android:title="Help and Feedback"/>
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_cancel_black_24dp"            android:title="Exit"/>
+    </group>
+
+</menu>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF5722</color>
+    <color name="selected_overlay">#88673AB7</color>
+
+    <item name="blue" type="color">#FF33B5E5</item>
+    <item name="green" type="color">#FF99CC00</item>
+    <item name="greens" type="color">#4CAF50</item>
+    <item name="orange" type="color">#FFFFBB33</item>
+    <item name="teal" type="color">#009688</item>
+    <item name="cyan" type="color">#00BCD4</item>
+    <item name="lime" type="color">#CDDC39</item>
+    <item name="lightgreen" type="color">#8BC34A</item>
+    <item name="lightblue" type="color">#03A9F4</item>
+
+
+
+
+
+    <integer-array name="androidcolors">
+        <item>@color/blue</item>
+        <item>@color/greens</item>
+        <item>@color/green</item>
+        <item>@color/lime</item>
+        <item>@color/orange</item>
+        <item>@color/teal</item>
+        <item>@color/cyan</item>
+        <item>@color/lightgreen</item>
+        <item>@color/lightblue</item>
+
+    </integer-array>
+
+
+
+
+
+</resources>
