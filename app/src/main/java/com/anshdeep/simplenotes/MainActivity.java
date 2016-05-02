@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -339,6 +340,27 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.feedback:
                         Intent inte = new Intent(MainActivity.this,FeedbackActivity.class);
                         startActivity(inte);
+                        drawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.share:
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT,
+                                "Hey check out the new Simple Notes app at: https://play.google.com/store/apps/details?id=com.anshdeep.simplenotes");
+                        sendIntent.setType("text/plain");
+                        startActivity(sendIntent);
+                        drawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.rate:
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("market://details?id=com.anshdeep.simplenotes")));
+                        } catch (android.content.ActivityNotFoundException e) {
+                            startActivity(new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("http://play.google.com/store/apps/details?id=com.anshdeep.simplenotes")));
+                        }
                         drawerLayout.closeDrawers();
                         break;
 

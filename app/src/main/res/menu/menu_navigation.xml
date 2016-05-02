@@ -35,6 +35,23 @@
             android:id="@+id/feedback"
             android:icon="@drawable/ic_feedback_black_24dp"
             android:title="Feedback"/>
+
+
+
+        <item
+            android:id="@+id/share"
+            android:icon="@drawable/ic_share_black_24dp"
+            android:title="Share App"/>
+
+        <item
+            android:id="@+id/rate"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="Rate the App"/>
+
+        <!--<item-->
+            <!--android:id="@+id/about"-->
+            <!--android:icon="@drawable/ic_feedback_black_24dp"-->
+            <!--android:title="Feedback"/>-->
         <item
             android:id="@+id/logout"
             android:icon="@drawable/ic_cancel_black_24dp"

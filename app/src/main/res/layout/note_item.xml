@@ -34,7 +34,7 @@
             android:layout_marginTop="@dimen/activity_margin_half"
             android:alpha="0.54"
             android:ellipsize="end"
-            android:maxLines="6"
+            android:maxLines="10"
             android:paddingBottom="@dimen/activity_margin_half"
             android:textColor="@android:color/black"
             tools:text="Description"/>
