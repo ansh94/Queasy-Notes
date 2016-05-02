@@ -226,6 +226,9 @@ public class AddReminderActivity extends AppCompatActivity {
 
     }
 
+    // Used to convert 24hr format to 12hr format with AM/PM values
+
+
     private void setAlarm(Calendar targetCal, String title, String desc) {
         Toast.makeText(getApplicationContext(), "Reminder set for " + targetCal.getTime(), Toast.LENGTH_SHORT).show();
         Intent notifyIntent = new Intent(getBaseContext(), MyReceiver.class);

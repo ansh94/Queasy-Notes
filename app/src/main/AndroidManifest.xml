@@ -38,28 +38,26 @@
             android:name=".AddNoteActivity"
             android:label="@string/title_activity_add_note"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
         <activity
             android:name=".ArchiveActivity"
-            android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_archive"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
         <activity
             android:name=".AddReminderActivity"
-            android:parentActivityName=".ReminderActivity"
             android:label="@string/title_activity_add_reminder"
+            android:parentActivityName=".ReminderActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".ReminderActivity"
-            android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_reminder"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -74,13 +72,21 @@
 
         <activity
             android:name=".HelpActivity"
-            android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_help"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".FeedbackActivity"
+            android:label="@string/title_activity_feedback"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.anshdeep.simplenotes.MainActivity"/>
         </activity>
     </application>
 

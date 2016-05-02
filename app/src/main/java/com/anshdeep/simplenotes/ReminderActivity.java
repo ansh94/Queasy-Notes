@@ -30,6 +30,8 @@ public class ReminderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reminder);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         fab = (FloatingActionButton) findViewById(R.id.rem_add_fab);
         reminderRecyclerView = (RecyclerView) findViewById(R.id.reminder_list);

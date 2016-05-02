@@ -35,6 +35,17 @@
             android:textColor="@android:color/black"
             tools:text="Description"/>
 
+
+        <TextView
+            android:id="@+id/reminder_item_datetime"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.54"
+            android:layout_marginTop="@dimen/activity_margin_half"
+            android:paddingBottom="@dimen/activity_margin_half"
+            android:text="Reminder"/>
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

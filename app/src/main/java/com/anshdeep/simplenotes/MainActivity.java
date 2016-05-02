@@ -335,6 +335,14 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(in);
                         drawerLayout.closeDrawers();
                         break;
+
+                    case R.id.feedback:
+                        Intent inte = new Intent(MainActivity.this,FeedbackActivity.class);
+                        startActivity(inte);
+                        drawerLayout.closeDrawers();
+                        break;
+
+                    //About section
                     case R.id.logout:
                         finish();
                 }

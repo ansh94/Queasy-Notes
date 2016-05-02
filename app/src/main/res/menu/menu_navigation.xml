@@ -29,10 +29,16 @@
         <item
             android:id="@+id/help"
             android:icon="@drawable/ic_live_help_black_24dp"
-            android:title="Help and Feedback"/>
+            android:title="Help"/>
+
+        <item
+            android:id="@+id/feedback"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:title="Feedback"/>
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_cancel_black_24dp"            android:title="Exit"/>
+            android:icon="@drawable/ic_cancel_black_24dp"
+            android:title="Exit"/>
     </group>
 
 </menu>
