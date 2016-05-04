@@ -42,13 +42,12 @@ public class ArchiveAdapter extends RecyclerView.Adapter<ArchiveAdapter.Archives
     }
 
 
-
     @Override
     public int getItemCount() {
         return archives.size();
     }
 
-    class ArchivesVH extends RecyclerView.ViewHolder  {
+    class ArchivesVH extends RecyclerView.ViewHolder {
         TextView title, note;
 
         public ArchivesVH(View itemView) {

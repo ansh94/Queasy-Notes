@@ -37,8 +37,6 @@ public class FeedbackActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendEmail();
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -58,8 +56,7 @@ public class FeedbackActivity extends AppCompatActivity {
         try {
             startActivity(Intent.createChooser(emailIntent, "Send email using"));
             Log.i("Finished sending email", "");
-        }
-        catch (android.content.ActivityNotFoundException ex) {
+        } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(FeedbackActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }

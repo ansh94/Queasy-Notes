@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -117,11 +116,7 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
         return notes.size();
     }
 
-    public void setFilter(List<Note> notess) {
-        notes = new ArrayList<>();
-        notes.addAll(notess);
-        notifyDataSetChanged();
-    }
+
 
 
     class NoteVH extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
@@ -136,7 +131,6 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
             selectedOverlay = itemView.findViewById(R.id.selected_overlay);
 
             itemView.setOnClickListener(this);
-//            itemView.setOnCreateContextMenuListener(this);
             itemView.setOnLongClickListener(this);
         }
 
@@ -151,18 +145,8 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
             if (listener != null) {
                 return listener.onItemLongClicked(getAdapterPosition());
             }
-//            Toast.makeText(context,"Item long clicked at position: " + getAdapterPosition(),Toast.LENGTH_SHORT).show();
             return false;
         }
-
-
-//        @Override
-//        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//            menu.setHeaderTitle("Select The Action");
-//            menu.add(0, v.getId(), 0, "Call");//groupId, itemId, order, title
-//            menu.add(0, v.getId(), 0, "SMS");
-//        }
-
 
     }
 

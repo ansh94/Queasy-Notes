@@ -66,11 +66,6 @@ public class AddNoteActivity extends AppCompatActivity {
                 long newTime = System.currentTimeMillis();
 
 
-
-
-                /**
-                 * TODO: Check if note exists before saving
-                 */
                 if (!editingNote) {
                     Log.d("Note", "saving or creating");
                     Note note = new Note(newTitle, newDesc,newTime);

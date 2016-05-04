@@ -1,6 +1,5 @@
 package com.anshdeep.simplenotes;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -27,9 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -89,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (initialCount >= 0) {
             notes = Note.listAll(Note.class);
-//
 
             archives = Archive.listAll(Archive.class);
             reminders = Reminder.listAll(Reminder.class);
@@ -98,39 +94,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Snackbar.make(recyclerView, "No notes added.", Snackbar.LENGTH_SHORT).show();
         }
-
-        /*
-        recycler view.onClick
-        @Override
-            public void onItemLongClick(View view, final int position) {
-                PopupMenu popupMenu = new PopupMenu(NotesActivity.this, view);
-                MenuInflater inflater = popupMenu.getMenuInflater();
-                inflater.inflate(R.menu_actions_notes, popupMenu.getMenu());
-                popupMenu.show();
-                final View v = view;
-                final int pos = position;
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        if(item.getItemId() == R.id.action_delete) {
-                            moveToTrash();
-                            delete(v, pos);
-                        } else if(item.getItemId() == R.id.action_archive) {
-                            moveToArchive(v, pos);
-                        } else if(item.getItemId() == R.id.action_edit) {
-                            edit(v);
-                        }
-
-                        return false;
-                    }
-                });
-            }
-        }));
-    }
-
-
-         */
-
 
         // tinting FAB icon
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -434,48 +397,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @SuppressLint("SimpleDateFormat")
-    public static String getDateFormat(long date) {
-        return new SimpleDateFormat("dd MMM yyyy").format(new Date(date));
-    }
+
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-//        MenuItem searchViewItem = menu.findItem(R.id.action_search);
-//        final SearchView searchViewAndroidActionBar = (SearchView) MenuItemCompat.getActionView(searchViewItem);
-//        searchViewAndroidActionBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                searchViewAndroidActionBar.clearFocus();
-//                return true;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                final List<Note> filteredNotes = filter(notes,newText);
-//                adapter.setFilter(filteredNotes);
-//                return true;
-//            }
-//        });
-
         return true;
     }
 
-//    private List<Note> filter(List<Note> models, String query) {
-//        query = query.toLowerCase();
-//
-//        final List<Note> filteredNoteList = new ArrayList<>();
-//        for (Note model : models) {
-//            final String text = model.getTitle().toLowerCase();
-//            if (text.contains(query)) {
-//                filteredNoteList.add(model);
-//            }
-//        }
-//        return filteredNoteList;
-//    }
 
 
 
@@ -485,13 +416,6 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
-
         return super.onOptionsItemSelected(item);
     }
 }

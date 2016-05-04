@@ -25,8 +25,6 @@ import java.util.List;
 
 public class AddReminderActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-    FloatingActionButton reminderFab;
 
     EditText etTitle, etDesc;
 
@@ -226,7 +224,6 @@ public class AddReminderActivity extends AppCompatActivity {
 
     }
 
-    // Used to convert 24hr format to 12hr format with AM/PM values
 
 
     private void setAlarm(Calendar targetCal, String title, String desc) {
