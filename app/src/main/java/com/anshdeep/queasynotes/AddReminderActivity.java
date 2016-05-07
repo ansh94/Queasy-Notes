@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -32,7 +32,7 @@ public class AddReminderActivity extends AppCompatActivity {
 
     ImageView btnDatePicker, btnTimePicker;
     EditText txtDate, txtTime;
-    final static int RQS_1 = 1;
+
     private int mYear, mMonth, mDay, mHour, mMinute;
 
     boolean editingReminder;
@@ -228,11 +228,15 @@ public class AddReminderActivity extends AppCompatActivity {
 
     private void setAlarm(Calendar targetCal, String title, String desc) {
         Toast.makeText(getApplicationContext(), "Reminder set for " + targetCal.getTime(), Toast.LENGTH_SHORT).show();
+        final  int RQS_1 = (int) System.currentTimeMillis();
+        Log.d("AddReminder","Request code: "+RQS_1);
         Intent notifyIntent = new Intent(getBaseContext(), MyReceiver.class);
         notifyIntent.putExtra("reminder_title", title);
         notifyIntent.putExtra("reminder_desc", desc);
+        notifyIntent.putExtra("code", RQS_1);
+
         PendingIntent pendingIntent = PendingIntent.getBroadcast
-                (getBaseContext(), RQS_1, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                (getBaseContext(), RQS_1, notifyIntent, PendingIntent.FLAG_ONE_SHOT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
     }

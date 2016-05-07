@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import com.orm.SugarRecord;
 

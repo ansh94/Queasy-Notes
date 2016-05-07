@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -68,7 +68,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
                 if (!editingNote) {
                     Log.d("Note", "saving or creating");
-                    Note note = new Note(newTitle, newDesc,newTime);
+                    Note note = new Note(newTitle, newDesc, newTime);
                     note.save();
                 } else {
                     Log.d("Note", "updating");

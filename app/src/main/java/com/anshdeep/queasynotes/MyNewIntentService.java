@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -23,6 +23,8 @@ public class MyNewIntentService extends IntentService {
         Notification.Builder builder = new Notification.Builder(this);
         String remTitle = intent.getStringExtra("rem_title");
         String remDesc = intent.getStringExtra("rem_desc");
+        int Noti_Code = intent.getExtras().getInt("code");
+
 
 
         builder.setContentTitle(remTitle);
@@ -32,11 +34,11 @@ public class MyNewIntentService extends IntentService {
         builder.setLights(Color.GREEN, 500, 500);
 
         Intent notifyIntent = new Intent(this, ReminderActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,Noti_Code,notifyIntent, PendingIntent.FLAG_ONE_SHOT);
         builder.setContentIntent(pendingIntent);
         Notification notificationCompat = builder.build();
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
-        managerCompat.notify(NOTIFICATION_ID, notificationCompat);
+        managerCompat.notify(Noti_Code, notificationCompat);
 
     }
 }

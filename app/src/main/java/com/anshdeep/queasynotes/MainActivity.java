@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     long initialCount;
 
     int archiveCount;
-    int modifyPos = -1;
+    int modifyPos = -1; //-1 means not modified
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 //removing from notes arraylist
+                modifyPos--;
                 notes.remove(viewHolder.getAdapterPosition());
                 adapter.notifyItemRemoved(position);
 
@@ -162,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
                                 notes.add(position, note);
                                 adapter.notifyItemInserted(position);
                                 initialCount += 1;
+                                modifyPos++;
 
                                 archives.remove(archive);
                                 archive.delete();
@@ -251,6 +253,12 @@ public class MainActivity extends AppCompatActivity {
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_remove:
+                    int cnt = adapter.getSelectedItemCount();
+                    modifyPos = modifyPos - cnt;
+                    if(modifyPos<0){
+                        modifyPos = 0;
+                    }
+                    initialCount = initialCount - cnt;
                     adapter.removeItems(adapter.getSelectedItems());
                     Snackbar.make(recyclerView,"Selected notes deleted",Snackbar.LENGTH_SHORT).show();
                     mode.finish();
@@ -310,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent sendIntent = new Intent();
                         sendIntent.setAction(Intent.ACTION_SEND);
                         sendIntent.putExtra(Intent.EXTRA_TEXT,
-                                "Hey check out the new Simple Notes app at: https://play.google.com/store/apps/details?id=com.anshdeep.simplenotes");
+                                "Hey check out the new Queasy Notes app at: https://play.google.com/store/apps/details?id=com.anshdeep.queasynotes");
                         sendIntent.setType("text/plain");
                         startActivity(sendIntent);
                         drawerLayout.closeDrawers();
@@ -319,10 +327,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.rate:
                         try {
                             startActivity(new Intent(Intent.ACTION_VIEW,
-                                    Uri.parse("market://details?id=com.anshdeep.simplenotes")));
+                                    Uri.parse("market://details?id=com.anshdeep.queasynotes")));
                         } catch (android.content.ActivityNotFoundException e) {
                             startActivity(new Intent(Intent.ACTION_VIEW,
-                                    Uri.parse("http://play.google.com/store/apps/details?id=com.anshdeep.simplenotes")));
+                                    Uri.parse("http://play.google.com/store/apps/details?id=com.anshdeep.queasynotes")));
                         }
                         drawerLayout.closeDrawers();
                         break;
@@ -374,8 +382,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("MainActivity","initial Count = " + initialCount);
+
 
         final long newCount = Note.count(Note.class);
+
+        Log.d("MainActivity","newCount = " + newCount);
 
         if (newCount > initialCount) {
             // A note is added
@@ -390,9 +402,19 @@ public class MainActivity extends AppCompatActivity {
             initialCount = newCount;
         }
 
+        Log.d("MainActivity","modifyPos = " + modifyPos);
+
+
+
         if (modifyPos != -1) {
-            notes.set(modifyPos, Note.listAll(Note.class).get(modifyPos));
-            adapter.notifyItemChanged(modifyPos);
+            if(modifyPos<0){
+                modifyPos=0;
+            }
+            if(newCount!=0){
+                notes.set(modifyPos, Note.listAll(Note.class).get(modifyPos));
+                adapter.notifyItemChanged(modifyPos);
+            }
+
         }
 
     }

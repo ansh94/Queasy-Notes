@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +15,7 @@ import java.util.Random;
 /**
  * Created by ANSHDEEP on 01-04-2016.
  */
-public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
+public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH> {
     Context context;
     List<Note> notes;
 
@@ -29,7 +29,6 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
 
 
     private ClickListener listener;
-
 
 
     public NotesAdapter(Context context, List<Note> notes) {
@@ -100,11 +99,16 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
     @Override
     public void onBindViewHolder(NoteVH holder, int position) {
 
+
         holder.title.setText(notes.get(position).getTitle());
         holder.note.setText(notes.get(position).getNote());
+
+
         int[] androidColors = context.getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
+
         holder.itemView.setBackgroundColor(randomAndroidColor);
+
 
         // Highlight the item if it's selected
         holder.selectedOverlay.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
@@ -117,9 +121,7 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
     }
 
 
-
-
-    class NoteVH extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
+    class NoteVH extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView title, note;
         View selectedOverlay;
 
@@ -151,9 +153,9 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
     }
 
 
-
     public interface ClickListener {
         public void onItemClick(View view, int position);
+
         public boolean onItemLongClicked(int position);
     }
 
@@ -161,7 +163,7 @@ public class NotesAdapter extends SelectableAdapter<NotesAdapter.NoteVH>  {
         this.listener = itemClickListener;
     }
 
-    public void SetOnLongItemClickListener(final ClickListener itemLongClickListener){
+    public void SetOnLongItemClickListener(final ClickListener itemLongClickListener) {
         this.listener = itemLongClickListener;
     }
 }

@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -50,7 +50,7 @@ public class FeedbackActivity extends AppCompatActivity {
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("message/rfc822");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for Simple Notes App");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for Queasy Notes");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Enter your feedback here");
 
         try {

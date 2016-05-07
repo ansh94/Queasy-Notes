@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

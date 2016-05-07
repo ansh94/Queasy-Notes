@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple Notes</string>
+    <string name="app_name">Queasy Notes</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_add_note">AddNoteActivity</string>
     <string name="drawer_open">Open</string>

@@ -1,4 +1,4 @@
-package com.anshdeep.simplenotes;
+package com.anshdeep.queasynotes;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
